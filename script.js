@@ -33,5 +33,17 @@ function riscaItem(evento) {
   }else {
     itemClicado.className = "completed";
   }
-  console.log(itemClicado.className);
 }
+
+// Apagando todos os itens
+let botaoApagaTudo = document.getElementById("apaga-tudo");
+botaoApagaTudo.addEventListener("click", apagaLista);
+
+function apagaLista() {
+  let listaTarefas = document.getElementById("lista-tarefas");
+  let tamanhoLista = listaTarefas.children.length;
+  for (let i = 0; i < tamanhoLista; i += 1){
+    listaTarefas.firstChild.remove();
+  }
+}
+
