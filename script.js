@@ -9,6 +9,7 @@ function adicionaTarefa() {
   let listaTarefas = document.getElementById("lista-tarefas");
   novaTarefa.innerText = input.value;
   novaTarefa.addEventListener("click", mudaCor);      // já adiciona a função pra mudar cor
+  novaTarefa.addEventListener("dblclick", riscaItem);  // add função pra riscar item
   listaTarefas.appendChild(novaTarefa);
   input.value = "";
 }
@@ -22,4 +23,15 @@ function mudaCor(evento) {
   }
   itemClicado.style.backgroundColor = "rgb(128,128,128)";
   // console.log(getComputedStyle(itemClicado).backgroundColor)
+}
+
+// Riscando itens
+function riscaItem(evento) {
+  let itemClicado = evento.target;
+  if (itemClicado.className === "completed") {
+    itemClicado.className = "";
+  }else {
+    itemClicado.className = "completed";
+  }
+  console.log(itemClicado.className);
 }
