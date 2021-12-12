@@ -22,7 +22,6 @@ function mudaCor(evento) {
     item.style.backgroundColor = "";          // aqui nesse FOR o programa apaga o style dos itens primeiro
   }
   itemClicado.style.backgroundColor = "rgb(128,128,128)";
-  // console.log(getComputedStyle(itemClicado).backgroundColor)
 }
 
 // Riscando itens
@@ -47,3 +46,18 @@ function apagaLista() {
   }
 }
 
+// Botão que apaga elementos riscados (completed)
+
+let botaoApagaRiscados = document.getElementById("remover-finalizados");
+botaoApagaRiscados.addEventListener("click", apagaRiscados);
+
+function apagaRiscados() {
+  let tarefas = document.getElementsByTagName("li");
+  for (i = 0; i < tarefas.length; i += 1) {
+    if (tarefas[i].className === "completed") {
+      console.log("oi")
+      tarefas[i].remove();
+      i -= 1                // isso é pro loop voltar um elemento, pois quando um é removido o próximo ocupa a posição dele
+    }
+  }
+}
