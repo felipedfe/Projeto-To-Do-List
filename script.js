@@ -96,3 +96,18 @@ function moveCima() {
 
   }
 
+  // Botão para apagar tarefa selecionada
+
+  let botaoApagaSelecionado = document.getElementById("remover-selecionado");
+  botaoApagaSelecionado.addEventListener("click", apagaSelecionado);
+
+  function apagaSelecionado() {
+    let selecao = document.getElementById("selecionado");
+    let tarefas = document.getElementById("lista-tarefas").children;
+    for (tarefa of tarefas) {
+      if (tarefa.classList.contains("selecionado")) {
+        tarefa.remove();
+      }
+    }
+  }
+
