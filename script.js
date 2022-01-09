@@ -1,3 +1,23 @@
+let listaBackup = [];
+
+let lista = document.getElementById("lista-tarefas");
+
+if (localStorage["tarefa"] !== undefined) {
+  if (localStorage["tarefa"].length > 0) {
+    listaBackup = JSON.parse(localStorage['tarefa']);
+    for (i = 0; i < listaBackup.length; i += 1) {
+      let tarefa = document.createElement("li");
+      tarefa.innerText = listaBackup[i].texto;
+      if (listaBackup[i].classe === "completed") {
+        tarefa.classList.add(listaBackup[i].classe);
+      }
+      tarefa.addEventListener("click", selecionaTarefa);
+      tarefa.addEventListener("dblclick", riscaItem);
+      lista.appendChild(tarefa);
+    }
+  }
+}
+
 // Botão que adiciona à lista
 let botaoAdcionar = document.getElementById("criar-tarefa");
 botaoAdcionar.addEventListener("click", adicionaTarefa);
@@ -22,7 +42,6 @@ function selecionaTarefa(evento) {
     item.style.backgroundColor = "";          // aqui nesse FOR o programa apaga o style dos itens primeiro
     item.classList.remove("selecionado");
   }
-  itemClicado.style.backgroundColor = "rgb(128,128,128)";
   itemClicado.classList.add("selecionado");
   return itemClicado;
 }
@@ -79,35 +98,59 @@ function moveCima() {
     }
   }
   
-  // Botão para mover elemento (BAIXO)
-  
-  let botaoMoveParaBaixo = document.getElementById("mover-baixo");
-  botaoMoveParaBaixo.addEventListener("click", moveBaixo);
+// Botão para mover elemento (BAIXO)
 
-  function moveBaixo() {
-    let listaTarefas = document.getElementById("lista-tarefas");
-    let tarefas = document.getElementById("lista-tarefas").children;
-    for (let i = tarefas.length - 2; i > -1; i -= 1) {    // i = tarefas.length - 2 porque isso corresponde ao último elemento do array - 1 
-      if (tarefas[i].classList.contains("selecionado")) {
-        listaTarefas.insertBefore(listaTarefas.childNodes[i + 1], tarefas[i]);
-        console.log("oi")
-        }
-    }
+let botaoMoveParaBaixo = document.getElementById("mover-baixo");
+botaoMoveParaBaixo.addEventListener("click", moveBaixo);
 
-  }
-
-  // Botão para apagar tarefa selecionada
-
-  let botaoApagaSelecionado = document.getElementById("remover-selecionado");
-  botaoApagaSelecionado.addEventListener("click", apagaSelecionado);
-
-  function apagaSelecionado() {
-    let selecao = document.getElementById("selecionado");
-    let tarefas = document.getElementById("lista-tarefas").children;
-    for (tarefa of tarefas) {
-      if (tarefa.classList.contains("selecionado")) {
-        tarefa.remove();
+function moveBaixo() {
+  let listaTarefas = document.getElementById("lista-tarefas");
+  let tarefas = document.getElementById("lista-tarefas").children;
+  for (let i = tarefas.length - 2; i > -1; i -= 1) {    // i = tarefas.length - 2 porque isso corresponde ao último elemento do array - 1 
+    if (tarefas[i].classList.contains("selecionado")) {
+      listaTarefas.insertBefore(listaTarefas.childNodes[i + 1], tarefas[i]);
       }
+  }
+
+}
+
+// Botão para apagar tarefa selecionada
+
+let botaoApagaSelecionado = document.getElementById("remover-selecionado");
+botaoApagaSelecionado.addEventListener("click", apagaSelecionado);
+
+function apagaSelecionado() {
+  let selecao = document.getElementById("selecionado");
+  let tarefas = document.getElementById("lista-tarefas").children;
+  for (tarefa of tarefas) {
+    if (tarefa.classList.contains("selecionado")) {
+      tarefa.remove();
     }
   }
+}
+
+// Botão para salvar lista
+
+let botaoSalvar = document.getElementById("salvar-tarefas");
+botaoSalvar.addEventListener("click", salvaLista);
+
+function salvaLista() {
+  listaBackup = [];
+  let objetoTarefa = {};
+  let tarefas = document.getElementById("lista-tarefas").children
+  for (let i = 0; i < tarefas.length; i += 1) {
+    if (tarefas[i].classList.contains("selecionado")) {
+      tarefas[i].classList.remove("selecionado");      // "selecionado" é removido para poder adicionar a classe da posicao zero logo abaixo
+    }
+    if (tarefas[i].classList.contains("completed")) {
+      objetoTarefa.classe = tarefas[i].classList[0];
+    }
+    objetoTarefa.texto = tarefas[i].innerText;
+    listaBackup.push(objetoTarefa);
+    objetoTarefa = {};
+  }
+  localStorage.setItem("tarefa", JSON.stringify(listaBackup));
+}
+
+
 

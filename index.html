@@ -8,19 +8,21 @@
   <title>Document</title>
 </head>
 <body>
-  <header>
-    <h1>Minha Lista de Tarefas</h1>
-    <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
-    <input id="texto-tarefa" value="" type="text">
-  </header>
-  <ol id="lista-tarefas"></ol>
-  <button id="criar-tarefa">adicionar</button>
-  <button id="apaga-tudo">limpar lista</button> 
-  <button id="remover-finalizados">remover finalizados</button>
-  <button id="mover-cima">mover cima</button>
-  <button id="mover-baixo">mover baixo</button>
-  <button id="remover-selecionado">remover selecionado</button>
-
+  <div id="container-total">
+    <header>
+      <h1>Minha Lista de Tarefas</h1>
+      <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
+      <input id="texto-tarefa" value="" type="text">
+      <button id="criar-tarefa">adicionar</button>
+    </header>
+    <ol id="lista-tarefas"></ol>
+    <button id="apaga-tudo">limpar lista</button> 
+    <button id="mover-cima">mover cima</button>
+    <button id="mover-baixo">mover baixo</button>
+    <button id="remover-selecionado">remover selecionado</button>
+    <button id="remover-finalizados">remover finalizados</button>
+    <button id="salvar-tarefas">salvar lista</button>
+  </div>
   <script src="script.js"></script>
 </body>
 </html>
