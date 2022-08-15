@@ -1,7 +1,7 @@
 const listaTarefas = document.getElementById('lista-tarefas');
+const input = document.getElementById('texto-tarefa');
 
 // BOTÕES
-const input = document.getElementById('texto-tarefa');
 const botaoAdicionar = document.getElementById('criar-tarefa');
 const botaoApagaTudo = document.getElementById('apaga-tudo');
 const botaoApagaRiscados = document.getElementById('remover-finalizados');
