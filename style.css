@@ -32,7 +32,7 @@ button {
 }
 
 #criar-tarefa {
-  background-color: rgb(177, 237, 232);
+  background-color: rgb(159, 255, 150);
 }
 
 #apaga-tudo {
@@ -44,18 +44,17 @@ button {
 }
 
 #mover-cima, #mover-baixo {
-  
-  background-color: rgb(159, 255, 150);
-}
-
-#salvar-tarefas {
   background-color: rgb(177, 237, 232);
 }
 
+#salvar-tarefas {
+  background-color: rgb(159, 255, 150);
+}
+
 .completed {
-  text-decoration: line-through solid rgb(0, 0, 0);
+  text-decoration: line-through 2px solid rgb(255, 105, 160);
 }
 
 .selecionado {
-  background-color: rgb(128, 128, 128)
+  background-color: rgb(226, 226, 226);
 }
