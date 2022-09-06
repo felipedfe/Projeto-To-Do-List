@@ -3,9 +3,7 @@ body {
 }
 
 #container-total {
-  margin-left: 2%;
-  margin-top: 4%;
-  margin-bottom: 7%;
+  padding: 2rem 4rem;
 }
 
 h1 {
@@ -14,6 +12,10 @@ h1 {
 
 li {
   margin-bottom: 10px;
+}
+
+li:hover {
+  cursor: pointer;
 }
 
 p {
@@ -56,5 +58,5 @@ button {
 }
 
 .selecionado {
-  background-color: rgb(226, 226, 226);
+  background-color: rgb(255, 252, 152);
 }
