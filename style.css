@@ -8,7 +8,11 @@ body {
 
 h1 {
   margin-bottom: 16px;
+
+  
 }
+
+
 
 li {
   margin-bottom: 10px;
@@ -30,6 +34,7 @@ button {
   border: none;
   border-radius: 20px;
   margin-left: 8px;
+  margin-top: 8px;
   text-decoration: none;
 }
 
@@ -59,4 +64,10 @@ button {
 
 .selecionado {
   background-color: rgb(255, 252, 152);
+}
+
+@media all and (max-width: 510px) {
+  #texto-tarefa {
+    width: 100%
+  }
 }
