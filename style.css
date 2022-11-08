@@ -1,5 +1,5 @@
 body {
-  font-family:sans-serif; 
+  font-family: sans-serif;
 }
 
 .container-total {
@@ -54,11 +54,13 @@ button:hover {
   background-color: rgb(255, 105, 160);
 }
 
-#remover-finalizados, #remover-selecionado {
+#remover-finalizados,
+#remover-selecionado {
   background-color: rgb(255, 198, 93);
 }
 
-#mover-cima, #mover-baixo {
+#mover-cima,
+#mover-baixo {
   background-color: rgb(177, 237, 232);
 }
 
@@ -79,7 +81,8 @@ button:hover {
     width: 100%;
   }
 
-  #criar-tarefa, #salvar-tarefas {
+  #criar-tarefa,
+  #salvar-tarefas {
     margin-top: 15px;
   }
 
@@ -89,7 +92,7 @@ button:hover {
   }
 
   .botao-de-edicao-container {
-    display:flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
   }
