@@ -64,13 +64,15 @@ function selecionaTarefa(evento) {
 }
 
 // Função que guarda um input, cria uma "li" e anexa na lista de tarefas
-function adicionaTarefa() {
-  const novaTarefa = document.createElement('li');
-  novaTarefa.innerText = input.value;
-  novaTarefa.addEventListener('click', selecionaTarefa); // já adiciona a função pra mudar cor
-  novaTarefa.addEventListener('dblclick', riscaItem); // add função pra riscar item
-  listaTarefas.appendChild(novaTarefa);
-  input.value = '';
+function adicionaTarefa(e) {
+  if (e.key === 'Enter' || e instanceof PointerEvent) {
+    const novaTarefa = document.createElement('li');
+    novaTarefa.innerText = input.value;
+    novaTarefa.addEventListener('click', selecionaTarefa); // já adiciona a função pra mudar cor
+    novaTarefa.addEventListener('dblclick', riscaItem); // add função pra riscar item
+    listaTarefas.appendChild(novaTarefa);
+    input.value = '';
+  }
 }
 
 function moveCima() {
@@ -93,6 +95,7 @@ function moveBaixo() {
 
 // EVENT LISTENERS
 botaoAdicionar.addEventListener('click', adicionaTarefa);
+input.addEventListener('keypress', (e) => adicionaTarefa(e));
 botaoApagaTudo.addEventListener('click', apagaLista);
 botaoApagaRiscados.addEventListener('click', apagaRiscados);
 botaoMoveParaCima.addEventListener('click', moveCima);

@@ -2,14 +2,14 @@ body {
   font-family:sans-serif; 
 }
 
-#container-total {
-  padding: 2rem 4rem;
+.container-total {
+  padding: 2rem 0rem;
+  width: 50vw;
+  margin: auto;
 }
 
 h1 {
   margin-bottom: 16px;
-
-  
 }
 
 li {
@@ -34,6 +34,16 @@ button {
   margin-left: 8px;
   margin-top: 8px;
   text-decoration: none;
+  box-shadow: inset 0px 0px 0px 2px transparent
+}
+
+button:hover {
+  box-shadow: inset 0px 0px 0px 2px gray;
+  transition: box-shadow 0.3s;
+}
+
+#texto-tarefa {
+  width: 50%;
 }
 
 #criar-tarefa {
